@@ -1,21 +1,31 @@
 ﻿
-class Program<T>
+class Program
 {
-    private T[] Singleton(T el) => new T[] { el };
-    private bool _null(T[] lst) => length(lst) == 0;
-    private T[] snoc(T[] lst, T el)
+    private static List<T> Singleton<T>(T el) => new List<T> { el };
+    private static bool _null<T>(List<T> lst) => length(lst) == 0;
+    private static List<T> snoc<T>(List<T> lst, T el)
     {
         int len = length(lst);
-        T[] newLst = new T[len + 1];
-        for (int i = 0; i < len; i++) newLst[i] = lst[i];
-        newLst[len] = el;
+        List<T> newLst = new List<T>(len + 1);
+        for (int i = 0; i < len; i++) newLst.Add(lst[i]);
+        newLst.Add(el);
         return newLst;
     }
-    private int length(T[] lst)
+    private static int length<T>(List<T> lst)
     {
         int count = 0;
         foreach (var el in lst) count++;
         return count;
     }
-    public static void Main() { }
+    public static void Main() 
+    {
+        List<int> k = new();
+        Console.WriteLine(_null(k));
+        k = Singleton(1);
+        Console.WriteLine(_null(k));
+        k = snoc(k, 2);
+        var l = snoc(k, 3);
+        Console.WriteLine(length(k));
+        Console.WriteLine(length(l));
+    }
 }
