@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+
 class Program
 {
     private static List<T> Singleton<T>(T el) => new List<T> { el };
