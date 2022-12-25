@@ -111,7 +111,4 @@ test = do
     log $ show $ tailTake 5 (2 : -1 : Nil)
     log $ show $ tailTake (-5) (1 : 2 : 3 : Nil)
     log $ show $ tailTake 5 (2 : -1 : 6 : 8 : -6 : -7 : 0 : Nil)
-
-
-
-
+    
